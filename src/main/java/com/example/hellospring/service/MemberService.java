@@ -3,6 +3,8 @@ package com.example.hellospring.service;
 import com.example.hellospring.domain.Member;
 import com.example.hellospring.repository.MemberRepository;
 import com.example.hellospring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,12 +12,16 @@ import java.util.Optional;
 
 //service class  : business 에 관련된 언어로 사용해야함 (mapping을 위해)
 //repository class : 기계적, 개발적 용어로 사용해야힘
+
 public class MemberService {
     //private final MemberRepository memberRepository = new MemoryMemberRepository();
 
     private final MemberRepository memberRepository;
 
-    public MemberService(MemberRepository memberRepository) {
+    //스프링 컨테이너에 Repository가 존재하게됨 (주입해줌 => DI)
+    @Autowired
+    public MemberService(MemberRepository memberRepository)
+    {
         this.memberRepository = memberRepository;
     }
 
