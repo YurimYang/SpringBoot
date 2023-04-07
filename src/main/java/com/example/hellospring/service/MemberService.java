@@ -1,6 +1,7 @@
 package com.example.hellospring.service;
 
 import com.example.hellospring.domain.Member;
+import com.example.hellospring.repository.JdbcMemberRepository;
 import com.example.hellospring.repository.MemberRepository;
 import com.example.hellospring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ import java.util.Optional;
 
 public class MemberService {
     //private final MemberRepository memberRepository = new MemoryMemberRepository();
+
+    private JdbcMemberRepository jdbcMemberRepository;
 
     private final MemberRepository memberRepository;
 
